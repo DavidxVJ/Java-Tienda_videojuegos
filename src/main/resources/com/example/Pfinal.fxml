@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="765.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.PrimaryController">
+  <tabs>
+    <Tab text="Catálogo">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="654.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" layoutX="1.0" prefHeight="60.0" prefWidth="600.0" AnchorPane.bottomAnchor="311.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label text="Catálogo">
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Verdana Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <GridPane layoutY="60.0" prefHeight="43.0" prefWidth="600.0" AnchorPane.bottomAnchor="268.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label text="Filtrar por:">
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Verdana" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                           <children>
+                              <ComboBox fx:id="plataforma" onAction="#filtrar" opacity="0.75" prefHeight="25.0" prefWidth="200.0" promptText="Plataforma">
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                 </VBox.margin>
+                              </ComboBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+                           <children>
+                              <ComboBox fx:id="genero" onAction="#filtrar2" opacity="0.75" prefHeight="25.0" prefWidth="200.0" promptText="Género">
+                                 <VBox.margin>
+                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                 </VBox.margin>
+                              </ComboBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </GridPane>
+                  <Button fx:id="Editar" layoutX="447.0" layoutY="162.0" mnemonicParsing="false" onAction="#editar_click" prefHeight="50.0" prefWidth="130.0" text="Editar" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="162.0">
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                     <font>
+                        <Font name="Verdana Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="agregarCarrito" layoutX="445.0" layoutY="263.0" mnemonicParsing="false" onAction="#agregarCarrito_click" prefHeight="50.0" prefWidth="130.0" text="Agregar al carrito" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="263.0">
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <TableView fx:id="catalogo" layoutX="14.0" layoutY="113.0" prefHeight="236.0" prefWidth="410.0" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="176.0" AnchorPane.topAnchor="113.0">
+                    <columns>
+                      <TableColumn fx:id="nombreColumn" prefWidth="163.0" text="Nombre" />
+                      <TableColumn fx:id="plataformaColumn" prefWidth="101.0" text="Plataforma" />
+                        <TableColumn fx:id="generoColumn" prefWidth="103.0" text="Género" />
+                        <TableColumn fx:id="precioColumn" prefWidth="45.0" text="Precio" />
+                        <TableColumn fx:id="anioColumn" prefWidth="50.0" text="Año" />
+                        <TableColumn fx:id="programadorColumn" prefWidth="112.0" text="Programador" />
+                    </columns>
+                  </TableView>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="Carrito">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="785.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="60.0" prefWidth="600.0" AnchorPane.bottomAnchor="311.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label text="Carrito">
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Button fx:id="Borrar" layoutX="445.0" layoutY="60.0" mnemonicParsing="false" onAction="#borrar_click" prefHeight="50.0" prefWidth="130.0" text="Borrar producto" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="60.0">
+                     <font>
+                        <Font name="Verdana Bold" size="12.0" />
+                     </font></Button>
+                  <Button fx:id="comprar" layoutX="445.0" layoutY="302.0" mnemonicParsing="false" onAction="#comprar_click" prefHeight="50.0" prefWidth="130.0" text="Comprar" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="302.0">
+                     <font>
+                        <Font name="Verdana Bold" size="14.0" />
+                     </font></Button>
+                  <Label layoutX="493.0" layoutY="175.0" text="Total" AnchorPane.rightAnchor="74.0" AnchorPane.topAnchor="175.0">
+                     <font>
+                        <Font name="Verdana Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="total" editable="false" layoutX="445.0" layoutY="206.0" prefHeight="25.0" prefWidth="130.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="206.0" />
+                  <TableView fx:id="carrito" layoutX="14.0" layoutY="57.0" prefHeight="294.0" prefWidth="410.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="176.0" AnchorPane.topAnchor="57.0">
+                     <columns>
+                        <TableColumn fx:id="nombreColumn2" prefWidth="163.0" text="Nombre" />
+                        <TableColumn fx:id="plataformaColumn2" prefWidth="101.0" text="Plataforma" />
+                        <TableColumn fx:id="generoColumn2" prefWidth="103.0" text="Género" />
+                        <TableColumn fx:id="precioColumn2" prefWidth="45.0" text="Precio" />
+                        <TableColumn fx:id="anioColumn2" prefWidth="50.0" text="Año" />
+                        <TableColumn fx:id="programadorColumn2" prefWidth="112.0" text="Programador" />
+                     </columns>
+                  </TableView>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
